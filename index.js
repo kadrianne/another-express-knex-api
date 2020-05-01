@@ -14,7 +14,7 @@ app.get("/dogs", (request,response) => {
 })
 
 app.get("/dogs/:id", (request,response) => {
-    database('dogs').select().where({ id: request.params.id })
+    database('dogs').select().where({ id: request.params.id }).first()
         .then(dog => response.json({dog}))
 })
 
